@@ -172,3 +172,60 @@ Floyd算法的核心来自动态规划
 ```c_cpp
 map[i][j] = min(map[i][j],map[i][k] + map[k][j])
 ```
+
+## 04 回文日期
+
+如何判断是不是闰年
+
+```c_cpp
+// 判断是否是闰年
+bool isLeap(int year) {
+	if((year % 400 == 0)||(year % 4 ==0 && year % 100 !=0)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+```
+
+如何判断日期合法？
+
+```c_cpp
+// 判断是否为合法日期
+bool check(int year,int month,int day) {
+	if(month > 12 || month == 0) return false;
+	if(day > 31) return false;
+	if(month == 2) {
+		if(isLeap(year)&&day>29) return false;
+		if(!isLeap(year)&&day>28) return false;
+	}
+	if(month ==4||month == 6 ||month == 9 || month == 11) {
+		if(day > 30) return false;
+	}
+	return true;
+}
+```
+
+## 05 门牌制作
+
+求一个正整数的长度:
+
+```c_cpp
+int len = 0;
+int x = 123456798;
+while(x){
+  x /= 10;
+  ++len;
+}
+```
+
+让一个正整数逆序输出 C++实现
+
+如何获取一个整数的各个数位（四位数如下）
+
+```c_cpp
+		a = i / 1000;           // 千
+		b = (i % 1000) / 100;   // 百
+		c = (i % 100) / 10;     // 十
+		d = i % 10;             // 个
+```
